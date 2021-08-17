@@ -1,8 +1,13 @@
 import React from 'react';
-import data from './data';
+import {BrowserRouter, Route} from 'react-router-dom';
+// import Loginbutton from './components/Loginbutton';
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
+
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="grid-container">
     <header className="row">
         <div>
@@ -14,38 +19,18 @@ function App() {
         <div>
             <a href="/"><span className="iconify" data-icon="ic:round-search"></span></a>
             <a href="/cart"><span className="iconify" data-icon="ic:outline-shopping-bag"></span></a>
+            {/* <Loginbutton></Loginbutton> */}
             <a href="/signin"><span className="iconify" data-icon="ic:baseline-person-outline"></span></a>
         </div>
     </header>
     <main>
-        <div className="row center">
-          {
-            data.products.map(product => (
-              <div key={product._id} className="card">
-              <a href={`/product/${product._id}`}>
-                  <img className="medium" src={product.image} alt={product.name}></img>
-              </a>
-              <div className="card-body">
-                  <a href={`/product/${product._id}`}><h2>{product.name}</h2></a>
-                  <div className="rating">
-                    <span className="iconify star" data-icon="ic:baseline-star"></span>
-                    <span className="iconify star" data-icon="ic:baseline-star"></span>
-                    <span className="iconify star" data-icon="ic:baseline-star"></span>
-                    <span className="iconify star" data-icon="ic:baseline-star"></span>
-                    <span className="iconify star" data-icon="ic:baseline-star"></span>
-                  </div>
-                  <div className="price">
-                    ${product.price}
-                  </div>
-              </div>
-          </div>
-            ))
-          }
+      <Route path="/product/:id" component={ProductScreen}></Route>
+      <Route path="/" component={HomeScreen} exact></Route>
 
-        </div>
     </main>
     <footer className="row center">All rights reserved</footer>
-  </div> 
+  </div>
+  </BrowserRouter>
   );
 }
 

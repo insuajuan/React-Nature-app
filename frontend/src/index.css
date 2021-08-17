@@ -60,11 +60,14 @@ a {
 h1 {
   font-size: 1.8rem;
   padding: 1rem 0;
+  color: black;
 }
 
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
+  margin: 0;
+  color: black;
 }
 /* Header */
 
@@ -120,9 +123,25 @@ img.medium {
 }
 
 .price {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .iconify.star {
   color: yellow;
 }
+
+.iconify.star-empty {
+  color: yellow;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rating span {
+  color: black;
+  font-size: 1rem;
+}
+
